@@ -1,6 +1,7 @@
 package com.micro.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 
@@ -20,7 +21,7 @@ public class UserDTO implements Serializable{
 
 	String role;
 
-	String createdDate;
+	Date createdDate;
 
 	public UserDTO() {
 		super();
@@ -37,7 +38,7 @@ public class UserDTO implements Serializable{
 		this.role = role;
 	}
 
-	public UserDTO(int id, String fname, String lname, String email, String password, String role, String createdDate) {
+	public UserDTO(int id, String fname, String lname, String email, String password, String role, Date createdDate) {
 		super();
 		this.id = id;
 		this.fname = fname;
@@ -96,11 +97,11 @@ public class UserDTO implements Serializable{
 		this.role = role;
 	}
 
-	public String getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(String createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 	

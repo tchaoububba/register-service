@@ -1,14 +1,18 @@
 package com.micro.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="Users")
@@ -38,8 +42,10 @@ public class User implements Serializable{
 	@Column(name="role")
 	String role;
 	
+	@CreationTimestamp
+	@Temporal(TemporalType.DATE)
 	@Column(name="createdDate")
-	String createdDate;
+	Date createdDate;
 
 	public User() {
 		super();
@@ -112,11 +118,11 @@ public class User implements Serializable{
 		this.role = role;
 	}
 
-	public String getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(String createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
