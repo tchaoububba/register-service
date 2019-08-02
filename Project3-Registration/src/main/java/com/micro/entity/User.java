@@ -18,9 +18,9 @@ public class User implements Serializable{
 
 	@Id
 	@Column(name="id")
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE1")
-	@SequenceGenerator(name="SEQUENCE1", sequenceName="SEQUENCE1", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE1")
+//	@SequenceGenerator(name="SEQUENCE1", sequenceName="SEQUENCE1", allocationSize=1)
 	int id;
 	
 	@Column(name="fname")
