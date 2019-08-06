@@ -19,12 +19,10 @@ public class UserServiceImpl implements UserService{
 	
 	private UserRepository ur;
 	
-//	@Autowired
-//	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	
 	@Autowired
 	public UserServiceImpl( UserRepository UserRepository) {
-//		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.ur=UserRepository;
 	}
 	
@@ -33,9 +31,9 @@ public class UserServiceImpl implements UserService{
 	public UserDTO newUser(UserDTO userDetail) {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		
+		BCryptPasswordEncoder bc =new BCryptPasswordEncoder();
 		User userEntity = modelMapper.map(userDetail, User.class);
-//		userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
+		userEntity.setPassword(bc.encode(userDetail.getPassword()));
 		System.out.println("Set User entity "+ userEntity);
 		ur.save(userEntity);
 		System.out.println(userEntity.getId());
