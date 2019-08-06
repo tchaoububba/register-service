@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -22,18 +23,19 @@ public class User implements Serializable{
 
 	@Id
 	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 //	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE1")
 //	@SequenceGenerator(name="SEQUENCE1", sequenceName="SEQUENCE1", allocationSize=1)
 	int id;
 	
-	@Column(name="fname")
+	@Column(name="FIRST_NAME")
 	String fname;
 
-	@Column(name="lname")
+	@Column(name="LAST_NAME")
 	String lname;
 	
 	@Column(name="email")
+	@Email
 	String email;
 	
 	@Column(name="password")
