@@ -44,6 +44,7 @@ public class User implements Serializable{
 	@Column(name="role")
 	String role;
 	
+	
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	@Column(name="createdDate")
@@ -59,7 +60,7 @@ public class User implements Serializable{
 		this.lname = lname;
 		this.email = email;
 		this.password = password;
-		this.role = role;
+		this.role=role;
 	}
 
 	public User(int id, String fname, String lname, String email, String password, String role) {
@@ -69,7 +70,7 @@ public class User implements Serializable{
 		this.lname = lname;
 		this.email = email;
 		this.password = password;
-		this.role = role;
+		this.role=role;
 	}
 
 	public int getId() {
@@ -117,7 +118,7 @@ public class User implements Serializable{
 	}
 
 	public void setRole(String role) {
-		this.role = role;
+		this.role=role;
 	}
 
 	public Date getCreatedDate() {

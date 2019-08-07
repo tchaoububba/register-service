@@ -94,7 +94,7 @@ public class UserDTO implements Serializable{
 	}
 
 	public void setRole(String role) {
-		this.role = role;
+	this.role=role;
 	}
 
 	public Date getCreatedDate() {

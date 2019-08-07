@@ -34,6 +34,17 @@ public class UserServiceImpl implements UserService{
 		BCryptPasswordEncoder bc =new BCryptPasswordEncoder();
 		User userEntity = modelMapper.map(userDetail, User.class);
 		userEntity.setPassword(bc.encode(userDetail.getPassword()));
+		if(userEntity.getRole()!=null) {
+		if(userEntity.getRole().equals("true")) {
+			userEntity.setRole("QC");
+		}
+		if(userEntity.getRole().equals("false")) {
+			userEntity.setRole("USER");
+		}
+		}
+		else {
+			userEntity.setRole("USER");
+		}
 		System.out.println("Set User entity "+ userEntity);
 		ur.save(userEntity);
 		System.out.println(userEntity.getId());
